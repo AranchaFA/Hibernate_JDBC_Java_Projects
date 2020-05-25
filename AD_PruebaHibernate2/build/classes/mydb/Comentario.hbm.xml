@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-feb-2020 18:14:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mydb.Comentario" table="Comentario" catalog="mydb" optimistic-lock="version">
+        <id name="idComentario" type="java.lang.Integer">
+            <column name="id_comentario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cuadro" class="mydb.Cuadro" fetch="select">
+            <column name="id_cuadro" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="mydb.Usuario" fetch="select">
+            <column name="id_usuario" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
